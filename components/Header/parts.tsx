@@ -34,8 +34,10 @@ export const HeaderNavigation = () => {
 				<li key={ind}>
 					<Link
 						href={navItem.link}
-						className={`flex flex-row items-center gap-1 rounded-[100px] py-2 pl-[14px] pr-[18px] border ${
-							isActive(navItem.link) ? "text-white bg-[#131316] " : ""
+						className={`flex flex-row items-center gap-1 rounded-[100px] py-2 pl-[14px] pr-[18px] border font-semibold  ${
+							isActive(navItem.link)
+								? "text-white bg-[#131316] "
+								: "text-[#56616B]"
 						} hover:bg-[#131316] hover:text-white transition-colors duration-200 `}
 					>
 						{cloneElement(navItem.icon, {

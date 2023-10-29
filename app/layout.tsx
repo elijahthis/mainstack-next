@@ -18,7 +18,7 @@ export default function RootLayout({
 			<body className="relative">
 				<Header />
 				<Sidebar />
-				{children}
+				<main className="px-[9.757vw] py-16 contentWrap ">{children}</main>
 			</body>
 		</html>
 	);
