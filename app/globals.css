@@ -38,6 +38,7 @@
 body {
 	font-family: "Degular";
 	font-weight: 400;
+	color: #56616b;
 }
 
 .header-ring {
@@ -63,9 +64,24 @@ h4,
 h5,
 h6 {
 	font-weight: 700;
+	color: #131316;
 }
 
 h1 {
 	font-size: 72px;
 	line-height: 80px;
+}
+
+h2 {
+	font-size: 28px;
+	font-style: normal;
+	line-height: 38px; /* 135.714% */
+	letter-spacing: -0.6px;
+}
+
+h3 {
+	font-size: 24px;
+	font-style: normal;
+	line-height: 32px; /* 133.333% */
+	letter-spacing: -0.6px;
 }
