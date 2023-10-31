@@ -49,3 +49,14 @@ export const transactionList: ITransaction[] = [
 		inflow: true,
 	},
 ];
+
+export const statusList: string[] = ["Successful", "Pending", "Failed"];
+
+export const transactionTypeList: string[] = [
+	"Store Transactions",
+	"Get Tipped",
+	"Withdrawals",
+	"Chargebacks",
+	"Cashbacks",
+	"Refer & Earn",
+];

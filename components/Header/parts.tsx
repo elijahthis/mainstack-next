@@ -12,6 +12,7 @@ import {
 } from "@/components/svgs";
 import { cloneElement } from "react";
 import { usePathname } from "next/navigation";
+import Popup from "../Popup";
 
 export const HeaderNavigation = () => {
 	const navList: { label: string; link: string; icon: JSX.Element }[] = [
@@ -52,7 +53,7 @@ export const HeaderNavigation = () => {
 };
 
 export const HeaderUser = () => (
-	<div className="flex flex-row items-center gap-2 ">
+	<div className="flex flex-row items-center gap-2 relative ">
 		<div className="w-10 h-10 grid place-items-center cursor-pointer">
 			<NotificationIcon />
 		</div>
@@ -70,5 +71,30 @@ export const HeaderUser = () => (
 			</div>
 			<HamburguerIcon />
 		</div>
+		{/* <HeaderUserDrop /> */}
 	</div>
 );
+
+export const HeaderUserDrop = () => {
+	return (
+		<Popup>
+			<div>
+				<div>
+					<div
+						className="w-8 h-8 grid place-items-center rounded-full text-white text-sm "
+						style={{
+							background:
+								"linear-gradient(139deg, #5C6670 2.33%, #131316 96.28%)",
+						}}
+					>
+						OJ
+					</div>
+					<div>
+						<p>Olivier Jones</p>
+						<p>olivierjones@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</Popup>
+	);
+};

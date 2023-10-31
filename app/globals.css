@@ -85,3 +85,74 @@ h3 {
 	line-height: 32px; /* 133.333% */
 	letter-spacing: -0.6px;
 }
+
+.popUp {
+	box-shadow: 0px 8px 16px 4px rgba(188, 196, 204, 0.1),
+		0px 12px 24px 0px rgba(219, 222, 229, 0.1),
+		0px 16px 32px 0px rgba(219, 222, 229, 0.1);
+	backdrop-filter: blur(8px);
+	border-radius: 20px;
+	background: #ffffff;
+
+	position: absolute;
+	top: calc(100% + 1.5rem);
+	right: 0;
+}
+
+.modal {
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.modalContentWrap {
+	width: 480px;
+	border-radius: 20px;
+	background: white;
+
+	/* Thick Shadow */
+	box-shadow: 0px 8px 16px 4px rgba(188, 196, 204, 0.1),
+		0px 12px 24px 0px rgba(219, 222, 229, 0.1),
+		0px 16px 32px 0px rgba(219, 222, 229, 0.1);
+	backdrop-filter: blur(8px);
+}
+
+input[type="checkbox"] {
+	/* // round the corners and make it orange when selected */
+	appearance: none;
+	border: 1px solid #e7ecf3;
+	border-radius: 2px;
+	width: 20px;
+	height: 20px;
+	transition: background-color 0.2s ease-in-out;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	outline: none;
+	background-color: #fff;
+}
+
+input[type="checkbox"]:checked {
+	background-color: #1c1b1f;
+	border-color: #1c1b1f;
+}
+
+input[type="checkbox"]:checked:after {
+	content: "";
+	position: absolute;
+	left: 0.38rem;
+	top: 0.09rem;
+	width: 0.35rem;
+	height: 0.7rem;
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+}
+
+input[type="checkbox"]:focus {
+	box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+input[type="checkbox"]:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
