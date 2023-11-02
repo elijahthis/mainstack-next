@@ -3,10 +3,14 @@ import Button from "../Button";
 import Dropdown from "../Dropdown";
 import FilterInput from "../FilterInput";
 import { CloseIcon } from "../svgs";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import MSDatePicker from "../MSDatePicker";
 
-const FilterModal = () => {
+const FilterModal = ({
+	setIsOpen,
+}: {
+	setIsOpen: Dispatch<SetStateAction<boolean>>;
+}) => {
 	const dateFilters = ["Today", "Last 7 days", "This month", "Last 3 months"];
 
 	const [selectedStatus, setSelectedStatus] = useState(statusList);
@@ -17,7 +21,13 @@ const FilterModal = () => {
 		<div className="h-full flex flex-col items-stretch">
 			<div className="py-5 px-6 flex flex-row items-center gap-3 justify-between ">
 				<h3>Filter</h3>
-				<CloseIcon />
+				<button
+					onClick={() => {
+						setIsOpen(false);
+					}}
+				>
+					<CloseIcon />
+				</button>
 			</div>
 			<div className="flex flex-row items-center gap-2 justify-between px-[22px] pt-2 pb-[28px] ">
 				{dateFilters.map((item, ind) => (

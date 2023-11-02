@@ -44,7 +44,7 @@ export const Transactions = () => {
 						<p className="text-sm">Your transactions for the last 7 days</p>
 					</div>
 					<div className="flex flex-row items-center gap-3 ">
-						<Button size="md" dark={false}>
+						<Button size="md" dark={false} onClick={() => setModalIsOpen(true)}>
 							<div className="flex flex-row items-center gap-1 pl-[6px] pr-[-4px]">
 								<span>Filter</span>
 								<span className="w-5 h-5 grid items-center bg-[#131316] text-white text-xs leading-[12px] rounded-full ">
@@ -73,7 +73,7 @@ export const Transactions = () => {
 				</div>
 			</section>
 			<Modal isOpen={modalIsOpen} setIsOpen={setModalIsOpen}>
-				<FilterModal />
+				<FilterModal setIsOpen={setModalIsOpen} />
 			</Modal>
 		</>
 	);
