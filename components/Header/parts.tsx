@@ -16,6 +16,10 @@ import {
 	HomeIcon,
 	NotificationIcon,
 	RevenueIcon,
+	SideIcon1,
+	SideIcon2,
+	SideIcon3,
+	SideIcon4,
 } from "@/components/svgs";
 import { usePathname } from "next/navigation";
 import Popup from "../Popup";
@@ -40,26 +44,36 @@ export const HeaderNavigation = () => {
 		(pathname.startsWith(link) && link !== "/") ||
 		(pathname === "/" && link === "/");
 
+	const [isAppOpen, setIsAppOpen] = useState(false);
+
 	return (
-		<ul className="flex flex-row items-center gap-5">
-			{navList.map((navItem, ind) => (
-				<li key={ind}>
-					<Link
-						href={navItem.link}
-						className={`flex flex-row items-center gap-1 rounded-[100px] py-2 pl-[14px] pr-[18px] border font-semibold  ${
-							isActive(navItem.link)
-								? "text-white bg-[#131316] "
-								: "text-[#56616B]"
-						} hover:bg-[#131316] hover:text-white transition-colors duration-200 `}
-					>
-						{cloneElement(navItem.icon, {
-							active: isActive(navItem.link),
-						})}
-						<span>{navItem.label}</span>
-					</Link>
-				</li>
-			))}
-		</ul>
+		<div className="relative">
+			<ul className="flex flex-row items-center gap-5">
+				{navList.map((navItem, ind) => (
+					<li key={ind}>
+						<Link
+							href={ind !== navList.length - 1 ? navItem.link : "#"}
+							className={`flex flex-row items-center gap-1 rounded-[100px] py-2 pl-[14px] pr-[18px] border font-semibold  ${
+								isActive(navItem.link)
+									? "text-white bg-[#131316] "
+									: "text-[#56616B]"
+							} hover:bg-[#131316] hover:text-white transition-colors duration-200 `}
+							onClick={() => {
+								if (ind === navList.length - 1) {
+									setIsAppOpen((val) => !val);
+								}
+							}}
+						>
+							{cloneElement(navItem.icon, {
+								active: isActive(navItem.link),
+							})}
+							<span>{navItem.label}</span>
+						</Link>
+					</li>
+				))}
+			</ul>
+			<HeaderAppDrop isOpen={isAppOpen} setIsOpen={setIsAppOpen} />
+		</div>
 	);
 };
 
@@ -137,6 +151,62 @@ export const HeaderUserDrop = ({
 					>
 						<span>{item.icon}</span>
 						<span>{item.label}</span>
+					</div>
+				))}
+			</div>
+		</Popup>
+	);
+};
+
+export const HeaderAppDrop = ({
+	isOpen,
+	setIsOpen,
+}: {
+	isOpen: boolean;
+	setIsOpen: Dispatch<SetStateAction<boolean>>;
+}) => {
+	const popList: { icon: JSX.Element; title: string; desc: string }[] = [
+		{
+			icon: <SideIcon1 dark={false} />,
+			title: "Link in Bio",
+			desc: "Manage your Link in Bio",
+		},
+		{
+			icon: <SideIcon2 dark={false} />,
+			title: "Store",
+			desc: "Manage your Store Activities",
+		},
+		{
+			icon: <SideIcon3 dark={false} />,
+			title: "Media Kit",
+			desc: "Manage your Media Kit",
+		},
+		{
+			icon: <SideIcon4 dark={false} />,
+			title: "Invoicing",
+			desc: "Manage your Invoices",
+		},
+		{
+			icon: <SideIcon2 dark={false} />,
+			title: "Bookings",
+			desc: "Manage your Bookings",
+		},
+	];
+	return (
+		<Popup isOpen={isOpen} setIsOpen={setIsOpen} style={{ right: -30 }}>
+			<div>
+				{popList.map((item, ind) => (
+					<div
+						className="flex flex-row items-center gap-4 py-4 px-6 cursor-pointer bg-white hover:bg-[#131316] text-[#131316] hover:text-white "
+						onClick={() => setIsOpen(false)}
+					>
+						<span className="w-9 h-9 border grid place-items-center rounded-lg">
+							{item.icon}
+						</span>
+						<div className="flex flex-col items-start ">
+							<p className="font-medium ">{item.title}</p>
+							<p>{item.desc}</p>
+						</div>
 					</div>
 				))}
 			</div>

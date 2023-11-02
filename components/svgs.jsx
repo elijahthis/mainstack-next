@@ -222,14 +222,14 @@ export const HamburguerIcon = () => (
 	</svg>
 );
 
-export const SideIcon1 = () => (
+export const SideIcon1 = ({ dark = true }) => (
 	<svg
 		width="24"
 		height="24"
 		viewBox="0 0 24 24"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
-		style={{ mixBlendMode: "luminosity" }}
+		style={{ mixBlendMode: dark ? "luminosity" : "unset" }}
 	>
 		<g id="Product Icons">
 			<path
@@ -290,14 +290,14 @@ export const SideIcon1 = () => (
 	</svg>
 );
 
-export const SideIcon2 = () => (
+export const SideIcon2 = ({ dark = true }) => (
 	<svg
 		width="20"
 		height="22"
 		viewBox="0 0 20 22"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
-		style={{ mixBlendMode: "luminosity" }}
+		style={{ mixBlendMode: dark ? "luminosity" : "unset" }}
 	>
 		<g id="vector">
 			<path
@@ -354,14 +354,14 @@ export const SideIcon2 = () => (
 	</svg>
 );
 
-export const SideIcon3 = () => (
+export const SideIcon3 = ({ dark = true }) => (
 	<svg
 		width="20"
 		height="20"
 		viewBox="0 0 20 20"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
-		style={{ mixBlendMode: "luminosity" }}
+		style={{ mixBlendMode: dark ? "luminosity" : "unset" }}
 	>
 		<g id="vector">
 			<path
@@ -418,14 +418,14 @@ export const SideIcon3 = () => (
 	</svg>
 );
 
-export const SideIcon4 = () => (
+export const SideIcon4 = ({ dark = true }) => (
 	<svg
 		width="24"
 		height="24"
 		viewBox="0 0 24 24"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
-		style={{ mixBlendMode: "luminosity" }}
+		style={{ mixBlendMode: dark ? "luminosity" : "unset" }}
 	>
 		<g id="Product Icons">
 			<path
