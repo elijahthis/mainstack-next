@@ -9,8 +9,8 @@ interface ModalProps {
 const Modal = ({ children, isOpen, setIsOpen }: ModalProps) => {
 	return (
 		<div
-			className={`modal h-screen  overflow-hidden fixed top-0 left-0 flex flex-row items-stretch justify-end py-3 px-3 ${
-				isOpen ? "w-screen" : "w-0"
+			className={`modal h-screen  overflow-hidden fixed top-0 left-0 flex flex-row items-stretch justify-end py-3 transition-all duration-300 ${
+				isOpen ? "w-screen justify-end  px-3" : "w-0 justify-start px-0"
 			} `}
 			onClick={() => setIsOpen(false)}
 		>
