@@ -35,6 +35,15 @@
 	font-style: normal;
 }
 
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 *::selection {
 	background-color: #131316;
 	color: #ffffff;
@@ -300,5 +309,16 @@ input[type="checkbox"] {
 			color: var(--white-white-100, #ffffff) !important;
 			border-radius: 50% !important;
 		}
+	}
+}
+
+.animate-spin {
+	-webkit-animation: spin 0.4s ease-in-out infinite; /* Safari */
+	animation: spin 0.4s ease-in-out infinite;
+}
+
+@media (max-width: 1024px) {
+	.side-ring {
+		top: 40vh;
 	}
 }

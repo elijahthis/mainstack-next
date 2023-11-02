@@ -54,8 +54,9 @@ const Dropdown = ({
 					transition: "opacity 0.3s ease-in-out",
 				}}
 			>
-				{optionList.map((optionItem) => (
+				{optionList.map((optionItem, ind) => (
 					<Checkbox
+						key={ind}
 						label={optionItem}
 						checked={selectedOptions.includes(optionItem)}
 						onSelect={() => {

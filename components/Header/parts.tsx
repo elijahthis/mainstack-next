@@ -47,7 +47,7 @@ export const HeaderNavigation = () => {
 	const [isAppOpen, setIsAppOpen] = useState(false);
 
 	return (
-		<div className="relative">
+		<div className="relative hidden lg:block">
 			<ul className="flex flex-row items-center gap-5">
 				{navList.map((navItem, ind) => (
 					<li key={ind}>
@@ -148,6 +148,7 @@ export const HeaderUserDrop = ({
 					<div
 						className="flex flex-row items-center gap-4 py-4 px-6 cursor-pointer bg-white hover:bg-[#131316] hover:text-white "
 						onClick={() => setIsOpen(false)}
+						key={ind}
 					>
 						<span>{item.icon}</span>
 						<span>{item.label}</span>
@@ -199,6 +200,7 @@ export const HeaderAppDrop = ({
 					<div
 						className="flex flex-row items-center gap-4 py-4 px-6 cursor-pointer bg-white hover:bg-[#131316] text-[#131316] hover:text-white "
 						onClick={() => setIsOpen(false)}
+						key={ind}
 					>
 						<span className="w-9 h-9 border grid place-items-center rounded-lg">
 							{item.icon}
