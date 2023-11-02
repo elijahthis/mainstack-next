@@ -4,6 +4,7 @@ import Dropdown from "../Dropdown";
 import FilterInput from "../FilterInput";
 import { CloseIcon } from "../svgs";
 import { useState } from "react";
+import MSDatePicker from "../MSDatePicker";
 
 const FilterModal = () => {
 	const dateFilters = ["Today", "Last 7 days", "This month", "Last 3 months"];
@@ -30,7 +31,14 @@ const FilterModal = () => {
 			</div>
 			<div className="px-[22px] flex flex-col items-stretch gap-6 ">
 				<FilterInput label="Date Range">
-					<></>
+					<div className="grid grid-cols-2 gap-[6px]">
+						<div>
+							<MSDatePicker />
+						</div>
+						<div>
+							<MSDatePicker />
+						</div>
+					</div>
 				</FilterInput>
 				<FilterInput label="Transaction Type">
 					<Dropdown

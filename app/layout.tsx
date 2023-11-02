@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
-import "./globals.css";
+import "./globals.scss";
+import "react-datepicker/dist/react-datepicker.css";
 import type { Metadata } from "next";
 import Sidebar from "@/components/Sidebar";
 

@@ -30,8 +30,10 @@ const Dropdown = ({
 	return (
 		<div className="relative" ref={eval(`wrapperRef${ind}`)}>
 			<div
-				className={`border border-[3px] flex flex-row items-center justify-between p-[14px] rounded-xl border border-[#EFF1F6] bg-[#EFF1F6] cursor-pointer ${
-					isOpen ? " border-[#131316] " : ""
+				className={`border border-[3px] flex flex-row items-center justify-between p-[14px] rounded-xl border cursor-pointer ${
+					isOpen
+						? " border-[#131316] bg-white "
+						: "border-[#EFF1F6]  bg-[#EFF1F6]  "
 				} `}
 				onClick={() => setIsOpen((val) => !val)}
 			>

@@ -1,0 +1,304 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font -- Degular */
+@font-face {
+	font-family: "Degular";
+	src: url("../assets/fonts/Degular/DegularDemo-Light.otf") format("opentype");
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Degular";
+	src: url("../assets/fonts/Degular/DegularDemo-Regular.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Degular";
+	src: url("../assets/fonts/Degular/DegularDemo-Medium.otf") format("opentype");
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Degular";
+	src: url("../assets/fonts/Degular/DegularDemo-Semibold.otf")
+		format("opentype");
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Degular";
+	src: url("../assets/fonts/Degular/DegularDemo-Bold.otf") format("opentype");
+	font-weight: 700;
+	font-style: normal;
+}
+
+*::selection {
+	background-color: #131316;
+	color: #ffffff;
+}
+
+body {
+	font-family: "Degular";
+	font-weight: 400;
+	color: #56616b;
+}
+
+.header-ring {
+	box-shadow: 0px 2px 4px 0px rgba(45, 59, 67, 0.05),
+		0px 2px 6px 0px rgba(45, 59, 67, 0.06);
+}
+.side-ring {
+	box-shadow: 0px 6px 12px 0px rgba(92, 115, 131, 0.08),
+		0px 4px 8px 0px rgba(92, 115, 131, 0.08);
+	top: calc(50% - 96px);
+	background-color: #ffffff;
+}
+
+.contentWrap {
+	min-height: calc(100vh - 82px);
+	padding-top: calc(82px + 64px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+	color: #131316;
+}
+
+h1 {
+	font-size: 72px;
+	line-height: 80px;
+}
+
+h2 {
+	font-size: 28px;
+	font-style: normal;
+	line-height: 38px; /* 135.714% */
+	letter-spacing: -0.6px;
+}
+
+h3 {
+	font-size: 24px;
+	font-style: normal;
+	line-height: 32px; /* 133.333% */
+	letter-spacing: -0.6px;
+}
+
+.popUp {
+	box-shadow: 0px 8px 16px 4px rgba(188, 196, 204, 0.1),
+		0px 12px 24px 0px rgba(219, 222, 229, 0.1),
+		0px 16px 32px 0px rgba(219, 222, 229, 0.1);
+	backdrop-filter: blur(8px);
+	border-radius: 20px;
+	background: #ffffff;
+
+	position: absolute;
+	top: calc(100% + 1.5rem);
+	right: 0;
+}
+
+.modal {
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.modalContentWrap {
+	width: 480px;
+	border-radius: 20px;
+	background: white;
+
+	/* Thick Shadow */
+	box-shadow: 0px 8px 16px 4px rgba(188, 196, 204, 0.1),
+		0px 12px 24px 0px rgba(219, 222, 229, 0.1),
+		0px 16px 32px 0px rgba(219, 222, 229, 0.1);
+	backdrop-filter: blur(8px);
+}
+
+input[type="checkbox"] {
+	/* // round the corners and make it orange when selected */
+	appearance: none;
+	border: 1px solid #e7ecf3;
+	border-radius: 2px;
+	width: 20px;
+	height: 20px;
+	transition: background-color 0.2s ease-in-out;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	outline: none;
+	background-color: #fff;
+
+	&:checked {
+		background-color: #1c1b1f;
+		border-color: #1c1b1f;
+
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0.38rem;
+			top: 0.09rem;
+			width: 0.35rem;
+			height: 0.7rem;
+			border: solid #fff;
+			border-width: 0 2px 2px 0;
+			transform: rotate(45deg);
+		}
+	}
+
+	&:focus {
+		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+}
+
+.react-datepicker {
+	width: 100% !important;
+	padding: 33.75px;
+	font-family: "Degular" !important;
+	border: 0 !important;
+
+	border-radius: 16.851px !important;
+	background: white !important;
+	box-shadow: 0px 6px 12px 0px rgba(92, 115, 131, 0.08),
+		0px 4px 8px 0px rgba(92, 115, 131, 0.08) !important;
+
+	&-wrapper {
+		width: 100%;
+	}
+
+	&__triangle {
+		display: none !important;
+	}
+
+	&__input-container {
+		input {
+			padding: 14px 16px 14px 16px;
+			outline: 0;
+			width: 100%;
+			// width: 200px;
+			background-color: transparent;
+			cursor: pointer;
+
+			color: var(--black-black-300, #131316);
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 16px; /* 114.286% */
+			letter-spacing: -0.2px;
+
+			border-radius: 12px;
+			background: var(--white-white-100, #eff1f6);
+			border: 3px solid var(--gray-gray-50, #eff1f6);
+
+			transition: all 0.2s ease-in-out;
+		}
+
+		.react-datepicker-ignore-onclickoutside {
+			border: 3px solid var(--black-black-300, #131316);
+			background-color: #ffffff;
+		}
+	}
+
+	&-popper {
+		width: 436px !important;
+	}
+
+	&__navigation {
+		top: 33.75px !important;
+
+		&--previous {
+			left: 33.75px !important;
+		}
+		&--next {
+			right: 33.75px !important;
+		}
+	}
+
+	&__month {
+		margin: 0 !important;
+
+		&-container {
+			width: 100% !important;
+		}
+	}
+
+	&__header {
+		background-color: white !important;
+		border: 0 !important;
+		padding: 0 !important;
+	}
+
+	&__current-month {
+		color: var(--black-black-300, #131316) !important;
+		text-align: center !important;
+		font-size: 13.481px !important;
+		font-style: normal !important;
+		font-weight: 600 !important;
+		line-height: 150% !important; /* 20.221px */
+		letter-spacing: -0.337px !important;
+	}
+
+	&__day-names {
+		margin-top: 14.32px !important;
+	}
+	&__week {
+		margin-top: 13.48px !important;
+	}
+
+	&__day-names,
+	&__week {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		// gap: 12px;
+	}
+
+	&__day-name {
+		padding: 7.583px 5.055px !important;
+
+		font-size: 14px !important;
+		font-weight: 600 !important;
+		line-height: 16px !important; /* 114.286% */
+		letter-spacing: -0.4px !important;
+		color: #56616b !important;
+	}
+
+	&__day {
+		width: 32px !important;
+		height: 32px !important;
+		margin: 0 !important;
+
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+
+		font-size: 14px !important;
+		font-style: normal !important;
+		font-weight: 600 !important;
+		line-height: 16px !important; /* 114.286% */
+		letter-spacing: -0.4px !important;
+
+		&--selected {
+			background-color: var(--black-black-300, #131316) !important;
+			color: var(--white-white-100, #ffffff) !important;
+			border-radius: 50% !important;
+		}
+		&:hover {
+			background-color: rgba(#131316, 0.4) !important;
+			color: var(--white-white-100, #ffffff) !important;
+			border-radius: 50% !important;
+		}
+	}
+}
