@@ -15,7 +15,7 @@ import {
 } from "@/components/svgs";
 import { transactionList } from "@/data/constants";
 import { fetchTransactions, fetchWallet } from "@/requests";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const ChartStats = () => {
 	const [wallet, setWallet] = useState<any>({});
@@ -38,12 +38,108 @@ export const ChartStats = () => {
 		fetchWalletData();
 	}, []);
 
+	let month = ["Apr 1,  2022", "", "", "", "", "Apr 30,  2022"];
+
+	const chartRef = useRef(null);
+
+	const plugins = [
+		{
+			beforeDatasetsDraw(chart: any) {
+				chart.ctx.shadowColor = "white";
+				chart.ctx.shadowBlur = 8;
+			},
+			afterDatasetsDraw(chart: any) {
+				chart.ctx.shadowColor = "white";
+				chart.ctx.shadowBlur = 0;
+			},
+		},
+	];
+	const data = {
+		labels: month,
+		datasets: [
+			{
+				label: "Signed",
+				data: [0, 25, 15, 20, 25, 0],
+				borderColor: "#FF5403",
+				pointBorderColor: "#ffffff",
+				pointBackgroundColor: "#FF5403",
+				pointBorderWidth: 4,
+				borderWidth: 2,
+				fill: true,
+				fillColor: "#fff",
+				tension: 0.4,
+				backgroundColor: "white", // Set the background color here
+			},
+		],
+	};
+	const options = {
+		maintainAspectRatio: false,
+		responsive: true,
+		scales: {
+			x: {
+				ticks: {
+					color: "black",
+				},
+				grid: {
+					color: "transparent",
+				},
+				gridLines: {
+					zeroLineColor: "transparent",
+				},
+			},
+			y: {
+				beginAtZero: true,
+				border: { dash: [5, 5] },
+				grid: {
+					color: "transparent",
+					borderDashOffset: 2,
+				},
+				gridLines: {
+					zeroLineColor: "transparent",
+				},
+				ticks: {
+					color: "black",
+					callback(value: any) {
+						return `${value}K `;
+					},
+				},
+			},
+		},
+
+		plugins: {
+			legend: {
+				position: "top",
+				display: false,
+			},
+			title: {
+				display: false,
+				text: "Visitor: 2k",
+			},
+			// tooltip: {
+			//   enabled: false,
+			// },
+		},
+		elements: {
+			point: {
+				radius: [0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+				hoverRadius: 6,
+			},
+		},
+	};
+
 	return (
 		<section
-			className="lg:grid flex flex-col items-stretch  mb-[82px]"
-			style={{ gridTemplateColumns: "765px 1fr" }}
+			className="lg:grid flex flex-col items-stretch  mb-[82px] gap-[124px] "
+			style={{ gridTemplateColumns: "1fr 272px" }}
 		>
-			<LineChart />
+			<div className="h-[380px] w-full">
+				<LineChart
+					plugins={plugins}
+					dataSet={data}
+					option={options}
+					refer={chartRef}
+				/>
+			</div>
 			<div className="flex flex-col items-stretch gap-8 ">
 				<StatBlock
 					label="Ledger Balance"
